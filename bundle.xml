@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adapt_framework>
+    <bundle>
+        <name>adapt_test_case</name>
+        <label>Adapt (Testing)</label>
+        <description>Adapt phpunit</description>
+        <version>1.0.0</version>
+        <type>extension</type>
+        <namespace>\adapt\test_case</namespace>
+        <copyright>2016 Delio Ltd</copyright>
+        <license>Closed source</license>
+        <depends_on>
+            <bundle>
+                <name>adapt</name>
+                <version>2.0</version>
+            </bundle>
+            <bundle>
+                <name>phpunit</name>
+                <version>6.0</version>
+            </bundle>
+        </depends_on>
+    </bundle>
+</adapt_framework>
