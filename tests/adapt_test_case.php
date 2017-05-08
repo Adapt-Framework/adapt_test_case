@@ -2,9 +2,9 @@
 
 namespace adapt\test_case;
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit_Framework_TestCase;
 
-class adapt_test_case extends TestCase
+class adapt_test_case extends PHPUnit_Framework_TestCase
 {
 
     public $http;
@@ -13,16 +13,26 @@ class adapt_test_case extends TestCase
     
     function __construct()
     {
+        print_r($this->adapt);
         define('TEMP_PATH', sys_get_temp_dir() . '/');
         define('ADAPT_PATH', '/var/www/html/horizon/adapt/');
-        define('ADAPT_VERSION', '2.0.0');
+        define('ADAPT_VERSION', '2.0.5');
         define('ADAPT_STARTED', true);
+        ob_start();
         require(ADAPT_PATH . 'adapt/adapt-' . ADAPT_VERSION . '/boot.php');
+        ob_end_clean();
         $this->adapt = $adapt;
-        $this->http =  new \adapt\http();
     }
     
     public function post($url, $data = null, $content_type = "application/json"){
-        return $this->http->post($url, $data, ['content-type' => $content_type]);
+        $http =  new \adapt\http();
+        $response = $http->post($url, $data, ['content-type' => $content_type]);
+        return $response;
     }
+    public function get($url){
+        $http =  new \adapt\http();
+        $response = $http->get($url);
+        return $response;
+    }
+    
 }
