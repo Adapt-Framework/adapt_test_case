@@ -5,6 +5,8 @@
         <label>Adapt (Testing)</label>
         <description>Adapt phpunit</description>
         <version>1.0.0</version>
+        <version_status>release</version_status>
+        <availability>private</availability>
         <type>extension</type>
         <namespace>\adapt\test_case</namespace>
         <copyright>2016 Delio Ltd</copyright>
